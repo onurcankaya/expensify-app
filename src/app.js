@@ -19,15 +19,17 @@ store.subscribe(() => {
 
 store.dispatch(addExpense({ description: 'water bill', amount: 200 }))
 store.dispatch(addExpense({ description: 'gas bill', amount: 300 }))
-store.dispatch(setTextFilter({ text: 'bill' }))
 store.dispatch(setTextFilter({ text: 'gas' }))
-store.dispatch(setTextFilter({ text: 'ill' }))
+
+setTimeout(() => {
+  store.dispatch(setTextFilter({ text: 'bill' }))
+}, 2000)
+
 store.dispatch(sortByAmount())
 
-const jsx = (
+ReactDOM.render(
   <Provider store={store}>
     <AppRouter />
-  </Provider>
+  </Provider>,
+  document.getElementById('root')
 )
-
-ReactDOM.render(jsx, document.getElementById('root'))
