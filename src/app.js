@@ -15,12 +15,8 @@ const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
 console.log(visibleExpenses)
 
 store.dispatch(addExpense({ description: 'water bill', amount: 200 }))
-store.dispatch(addExpense({ description: 'gas bill', amount: 300 }))
-store.dispatch(setTextFilter({ text: 'gas' }))
-
-setTimeout(() => {
-  store.dispatch(setTextFilter({ text: 'bill' }))
-}, 2000)
+store.dispatch(addExpense({ description: 'gas bill', createdAt: 3000 }))
+store.dispatch(addExpense({ description: 'rent', amount: 6000 }))
 
 ReactDOM.render(
   <Provider store={store}>
