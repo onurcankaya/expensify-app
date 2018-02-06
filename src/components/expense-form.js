@@ -44,12 +44,18 @@ class ExpenseForm extends React.Component {
   onSubmit = e => {
     e.preventDefault()
 
-    const { description, amount } = this.state
+    const { description, amount, createdAt, note } = this.state
 
     if (!description && !amount) {
       this.setState(() => ({ error: 'Please provide description and amount.' }))
     } else {
       this.setState(() => ({ error: '' }))
+      this.props.onSubmit({
+        description,
+        amount: parseFloat(amount, 10) * 100,
+        createdAt: createdAt.valueOf(),
+        note,
+      })
     }
   }
 

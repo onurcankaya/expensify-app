@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
 import ExpenseListItem from './expense-list-item'
 import selectExpenses from '../selectors/expenses'
 

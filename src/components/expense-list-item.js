@@ -2,13 +2,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { removeExpense } from '../actions/expenses'
 
-const ExpenseListItem = ({ id, description, amount, createdAt, dispatch }) => {
+const ExpenseListItem = ({
+  id,
+  description,
+  amount,
+  createdAt,
+  note,
+  dispatch,
+}) => {
   return (
     <div>
       <h3>{description}</h3>
       <p>
         {amount} - {createdAt}
       </p>
+      <p>{note}</p>
       <button
         onClick={() => {
           dispatch(removeExpense({ id }))
