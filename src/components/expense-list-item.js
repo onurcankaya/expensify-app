@@ -1,6 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { removeExpense } from '../actions/expenses'
+import { NavLink } from 'react-router-dom'
 
 const ExpenseListItem = ({
   id,
@@ -12,20 +11,15 @@ const ExpenseListItem = ({
 }) => {
   return (
     <div>
-      <h3>{description}</h3>
+      <NavLink to={`/edit/${id}`} activeClassName="is-active">
+        <h3>{description}</h3>
+      </NavLink>
       <p>
         {amount} - {createdAt}
       </p>
       <p>{note}</p>
-      <button
-        onClick={() => {
-          dispatch(removeExpense({ id }))
-        }}
-      >
-        Remove
-      </button>
     </div>
   )
 }
 
-export default connect()(ExpenseListItem)
+export default ExpenseListItem
