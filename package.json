@@ -1,5 +1,5 @@
 {
-  "name": "expensify",
+  "name": "react-redux-expense-tracking",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Onur Cankaya",
