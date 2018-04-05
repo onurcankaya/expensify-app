@@ -2,3 +2,4 @@ node_modules/
 src/playground/
 .vscode/
 public/dist/
+src/tests/components/__snapshots__/
