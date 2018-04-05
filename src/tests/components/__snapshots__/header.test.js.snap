@@ -2,6 +2,9 @@
 
 exports[`should render Header correctly 1`] = `
 <header>
+  <h1>
+    Expense Tracking
+  </h1>
   <NavLink
     activeClassName="is-active"
     ariaCurrent="true"

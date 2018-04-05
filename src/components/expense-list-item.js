@@ -1,5 +1,24 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import moment from 'moment'
+import numeral from 'numeral'
+
+numeral.register('locale', 'da-dk', {
+  delimiters: {
+    thousands: ' ',
+    decimal: ',',
+  },
+  abbreviations: {
+    thousand: 'k',
+    million: 'm',
+    billion: 'b',
+    trillion: 't',
+  },
+  currency: {
+    symbol: 'DKK',
+  },
+})
+numeral.locale('da-dk')
 
 const ExpenseListItem = ({
   id,
@@ -14,9 +33,8 @@ const ExpenseListItem = ({
       <NavLink to={`/edit/${id}`} activeClassName="is-active">
         <h3>{description}</h3>
       </NavLink>
-      <p>
-        {amount} - {createdAt}
-      </p>
+      <p>{numeral(amount / 100).format('$ 0.0[,]00')}</p>
+      <p> {moment(createdAt).format('MMMM Do, YYYY')}</p>
       <p>{note}</p>
     </div>
   )
