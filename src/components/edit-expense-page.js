@@ -9,17 +9,14 @@ const EditExpensePage = (props) => (
     <ExpenseForm
       expense={props.expense}
       onSubmit={(expense) => {
-        console.log(expense)
         props.dispatch(editExpense(props.expense.id, expense))
         props.history.push('/')
-        console.log(expense)
       }}
     />
     <button
       onClick={() => {
         props.dispatch(removeExpense({ id: props.expense.id }))
         props.history.push('/')
-        console.log(props.expense.id)
       }}
       className="button-alternate">
       Remove

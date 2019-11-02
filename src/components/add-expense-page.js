@@ -10,7 +10,6 @@ const AddExpensePage = ({ dispatch, history }) => (
       onSubmit={(expense) => {
         dispatch(addExpense(expense))
         history.push('/')
-        console.log(expense)
       }}
     />
   </div>

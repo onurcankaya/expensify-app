@@ -63,7 +63,6 @@ class ExpenseForm extends React.Component {
   }
 
   render() {
-    console.log(window.location.pathname)
     return (
       <div>
         {this.state.error && <p style={{ color: 'red' }}>{this.state.error}</p>}
