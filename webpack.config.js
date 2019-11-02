@@ -7,7 +7,7 @@ module.exports = (env) => {
 
   console.log('env', env)
   return {
-    entry: './src/app.js',
+    entry: ['babel-polyfill', './src/app.js'],
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js',
@@ -29,28 +29,26 @@ module.exports = (env) => {
               {
                 loader: 'css-loader',
                 options: {
-                  sourceMap: true
-                }
+                  sourceMap: true,
+                },
               },
               {
                 loader: 'sass-loader',
                 options: {
-                  sourceMap: true
-                }
+                  sourceMap: true,
+                },
               },
-            ]
+            ],
           }),
         },
       ],
     },
-    plugins: [
-      CSSExtract
-    ],
+    plugins: [CSSExtract],
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
-      publicPath: '/dist/'
+      publicPath: '/dist/',
     },
   }
 }
