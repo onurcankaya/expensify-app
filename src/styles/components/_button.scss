@@ -1,0 +1,18 @@
+@mixin button {
+  height: 60px;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.button {
+  color: $white;
+  background-color: $blue;
+  border: 1px solid $blue;
+  @include button;
+}
+
+.button-alternate {
+  color: $gray;
+  border: 1px solid $gray;
+  @include button;
+}

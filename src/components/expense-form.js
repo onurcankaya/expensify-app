@@ -16,12 +16,12 @@ class ExpenseForm extends React.Component {
     }
   }
 
-  onDescriptionChange = e => {
+  onDescriptionChange = (e) => {
     const description = e.target.value
     this.setState(() => ({ description }))
   }
 
-  onAmountChange = e => {
+  onAmountChange = (e) => {
     const amount = e.target.value
 
     if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
@@ -29,12 +29,12 @@ class ExpenseForm extends React.Component {
     }
   }
 
-  onNoteChange = e => {
+  onNoteChange = (e) => {
     const note = e.target.value
     this.setState(() => ({ note }))
   }
 
-  onDateChange = createdAt => {
+  onDateChange = (createdAt) => {
     if (createdAt) {
       this.setState(() => ({ createdAt }))
     }
@@ -44,7 +44,7 @@ class ExpenseForm extends React.Component {
     this.setState(() => ({ calendarFocused: focused }))
   }
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault()
 
     const { description, amount, createdAt, note } = this.state
@@ -66,19 +66,23 @@ class ExpenseForm extends React.Component {
     return (
       <div>
         {this.state.error && <p style={{ color: 'red' }}>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
+        <form
+          onSubmit={this.onSubmit}
+          style={{ display: 'flex', flexDirection: 'column' }}>
           <input
             type="text"
             placeholder="Description"
             autoFocus
             value={this.state.description}
             onChange={this.onDescriptionChange}
+            className="input"
           />
           <input
             type="text"
             placeholder="Amount"
             value={this.state.amount}
             onChange={this.onAmountChange}
+            className="input"
           />
           <SingleDatePicker
             date={this.state.createdAt}
@@ -87,13 +91,15 @@ class ExpenseForm extends React.Component {
             onFocusChange={this.onFocusChange}
             numberOfMonths={1}
             isOutsideRange={() => false}
+            displayFormat={() => 'DD/MM/YYYY'}
           />
           <textarea
             placeholder="Add a note for your expense (optional)"
             value={this.state.note}
             onChange={this.onNoteChange}
+            className="textarea"
           />
-          <button>Add Expense</button>
+          <button className="button">Add Expense</button>
         </form>
       </div>
     )

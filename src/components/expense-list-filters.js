@@ -25,31 +25,32 @@ class ExpenseListFilters extends React.Component {
     this.props.dispatch(setEndDate(endDate))
   }
 
-  onFocusChange = calendarFocused => {
+  onFocusChange = (calendarFocused) => {
     this.setState(() => ({ calendarFocused }))
   }
 
   render() {
     return (
-      <div>
+      <div className="expense-list-filters">
         <input
           type="text"
           value={this.props.filters.text}
-          onChange={e => {
+          placeholder="Search expenses"
+          onChange={(e) => {
             this.props.dispatch(setTextFilter({ text: e.target.value }))
           }}
+          className="input"
         />
         <select
           value={this.props.filters.sortBy}
-          onChange={e => {
+          onChange={(e) => {
             if (e.target.value === 'date') {
               this.props.dispatch(sortByDate())
             } else if (e.target.value === 'amount') {
               this.props.dispatch(sortByAmount())
             }
-            console.log(e.target.value)
           }}
-        >
+          className="select">
           <option value="date">Date</option>
           <option value="amount">Amount</option>
         </select>
@@ -62,13 +63,14 @@ class ExpenseListFilters extends React.Component {
           showClearDates={true}
           numberOfMonths={1}
           isOutsideRange={() => false}
+          displayFormat={() => 'DD/MM/YYYY'}
         />
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     filters: state.filters,
   }

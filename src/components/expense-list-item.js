@@ -30,7 +30,10 @@ const ExpenseListItem = ({
 }) => {
   return (
     <div>
-      <NavLink to={`/edit/${id}`} activeClassName="is-active">
+      <NavLink
+        to={`/edit/${id}`}
+        activeClassName="is-active"
+        className="expense-list-item">
         <h3>{description}</h3>
       </NavLink>
       <p>{numeral(amount / 100).format('$ 0.0[,]00')}</p>

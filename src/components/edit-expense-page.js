@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import ExpenseForm from './expense-form'
 import { editExpense, removeExpense } from '../actions/expenses'
 
-const EditExpensePage = props => (
-  <div>
+const EditExpensePage = (props) => (
+  <div className="content-container">
     <h1>Edit Expense</h1>
     <ExpenseForm
       expense={props.expense}
-      onSubmit={expense => {
+      onSubmit={(expense) => {
         console.log(expense)
         props.dispatch(editExpense(props.expense.id, expense))
         props.history.push('/')
@@ -21,14 +21,16 @@ const EditExpensePage = props => (
         props.history.push('/')
         console.log(props.expense.id)
       }}
-    >
+      className="button-alternate">
       Remove
     </button>
   </div>
 )
 
 const mapStateToProps = (state, props) => ({
-  expense: state.expenses.find(expense => expense.id === props.match.params.id),
+  expense: state.expenses.find(
+    (expense) => expense.id === props.match.params.id
+  ),
 })
 
 export default connect(mapStateToProps)(EditExpensePage)

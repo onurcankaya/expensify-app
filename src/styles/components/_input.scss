@@ -1,0 +1,28 @@
+@mixin date-input {
+  width: 400px;
+  margin-bottom: 20px;
+}
+@mixin input-common {
+  width: 380px;
+  margin-bottom: 20px;
+}
+.input {
+  @include input-common;
+  height: 60px;
+  padding: 0 10px;
+}
+.SingleDatePickerInput {
+  @include date-input;
+}
+.DateRangePickerInput {
+  @include date-input;
+}
+.textarea {
+  @include input-common;
+  height: 20px;
+  padding: 20px 10px;
+}
+.select {
+  @include input-common;
+  height: 60px;
+}

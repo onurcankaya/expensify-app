@@ -1,0 +1,19 @@
+.header {
+  color: $white;
+  background-color: $dark-gray;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  a {
+    margin-right: 30px;
+    color: $lightGray;
+    text-decoration: none;
+  }
+}

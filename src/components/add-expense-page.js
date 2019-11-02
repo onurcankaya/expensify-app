@@ -4,10 +4,10 @@ import ExpenseForm from './expense-form'
 import { addExpense } from '../actions/expenses'
 
 const AddExpensePage = ({ dispatch, history }) => (
-  <div>
+  <div className="content-container">
     <h1>Add Expense</h1>
     <ExpenseForm
-      onSubmit={expense => {
+      onSubmit={(expense) => {
         dispatch(addExpense(expense))
         history.push('/')
         console.log(expense)
