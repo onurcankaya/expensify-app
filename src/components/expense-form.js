@@ -63,6 +63,7 @@ class ExpenseForm extends React.Component {
   }
 
   render() {
+    console.log(window.location.pathname)
     return (
       <div>
         {this.state.error && <p style={{ color: 'red' }}>{this.state.error}</p>}
@@ -99,7 +100,11 @@ class ExpenseForm extends React.Component {
             onChange={this.onNoteChange}
             className="textarea"
           />
-          <button className="button">Add Expense</button>
+          <button className="button">
+            {window.location.pathname === '/create'
+              ? 'Add Expense'
+              : 'Edit Expense'}
+          </button>
         </form>
       </div>
     )
