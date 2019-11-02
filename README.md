@@ -2,13 +2,13 @@
 
 expense tracking app made with react and redux
 
-#Install dependencies
+## Install dependencies
 ```
 yarn
 ```
 
 
-#Run
+## Run
 ```
 yarn dev-server
 ```
