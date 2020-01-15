@@ -5,13 +5,15 @@ import { addExpense } from '../store/actions/expenses'
 
 const AddExpensePage = ({ dispatch, history }) => (
   <div className="content-container">
-    <h1>Add Expense</h1>
-    <ExpenseForm
-      onSubmit={(expense) => {
-        dispatch(addExpense(expense))
-        history.push('/')
-      }}
-    />
+    <div>
+      <h1>Add Expense</h1>
+      <ExpenseForm
+        onSubmit={(expense) => {
+          dispatch(addExpense(expense))
+          history.push('/')
+        }}
+      />
+    </div>
   </div>
 )
 

@@ -6,11 +6,11 @@ import selectExpenses from '../store/selectors/expenses'
 export const ExpenseList = (props) => (
   <div>
     {props.expenses.length === 0 ? (
-      <p>No expenses.</p>
+      <div style={{ width: '100%' }}>
+        <p>No expenses.</p>
+      </div>
     ) : (
-      props.expenses.map((expense) => (
-        <ExpenseListItem key={expense.id} {...expense} />
-      ))
+      props.expenses.map((expense) => <ExpenseListItem key={expense.id} {...expense} />)
     )}
   </div>
 )
