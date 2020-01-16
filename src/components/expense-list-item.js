@@ -20,20 +20,10 @@ numeral.register('locale', 'da-dk', {
 })
 numeral.locale('da-dk')
 
-const ExpenseListItem = ({
-  id,
-  description,
-  amount,
-  createdAt,
-  note,
-  dispatch,
-}) => {
+const ExpenseListItem = ({ id, description, amount, createdAt, note, dispatch }) => {
   return (
-    <div>
-      <NavLink
-        to={`/edit/${id}`}
-        activeClassName="is-active"
-        className="expense-list-item">
+    <div className="expense-list-container">
+      <NavLink to={`/edit/${id}`} activeClassName="is-active" className="expense-list-item">
         <h3>{description}</h3>
       </NavLink>
       <p>{numeral(amount / 100).format('$ 0.0[,]00')}</p>

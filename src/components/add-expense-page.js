@@ -5,7 +5,7 @@ import { addExpense } from '../store/actions/expenses'
 
 const AddExpensePage = ({ dispatch, history }) => (
   <div className="content-container">
-    <div>
+    <div className="expense-forms-container">
       <h1>Add Expense</h1>
       <ExpenseForm
         onSubmit={(expense) => {

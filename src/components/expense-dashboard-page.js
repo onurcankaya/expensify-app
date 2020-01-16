@@ -4,8 +4,10 @@ import ExpenseListFilters from './expense-list-filters'
 
 const ExpenseDashboardPage = () => (
   <div className="content-container">
-    <ExpenseListFilters />
-    <ExpenseList />
+    <div className="expense-forms-container">
+      <ExpenseListFilters />
+      <ExpenseList />
+    </div>
   </div>
 )
 

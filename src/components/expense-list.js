@@ -6,7 +6,7 @@ import selectExpenses from '../store/selectors/expenses'
 export const ExpenseList = (props) => (
   <div>
     {props.expenses.length === 0 ? (
-      <div style={{ width: '100%' }}>
+      <div style={{ width: '100%', paddingTop: '40px' }}>
         <p>No expenses.</p>
       </div>
     ) : (
