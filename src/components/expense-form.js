@@ -66,9 +66,7 @@ class ExpenseForm extends React.Component {
     return (
       <div>
         {this.state.error && <p style={{ color: 'red' }}>{this.state.error}</p>}
-        <form
-          onSubmit={this.onSubmit}
-          style={{ display: 'flex', flexDirection: 'column' }}>
+        <form onSubmit={this.onSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
           <input
             type="text"
             placeholder="Description"
@@ -94,15 +92,13 @@ class ExpenseForm extends React.Component {
             displayFormat={() => 'DD/MM/YYYY'}
           />
           <textarea
-            placeholder="Add a note for your expense (optional)"
+            placeholder="Add a note (optional)"
             value={this.state.note}
             onChange={this.onNoteChange}
             className="textarea"
           />
           <button className="button">
-            {window.location.pathname === '/create'
-              ? 'Add Expense'
-              : 'Edit Expense'}
+            {window.location.pathname === '/create' ? 'Add Expense' : 'Edit Expense'}
           </button>
         </form>
       </div>
